@@ -1,0 +1,25 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Text to Sign Language Translator</title>
+    <style>
+        body { font-family: Arial; text-align: center; }
+        img { height: 150px; margin: 5px; }
+    </style>
+</head>
+<body>
+    <h1>Text to ASL Translator</h1>
+    <form method="POST">
+        <input type="text" name="text" placeholder="Type your word..." required>
+        <button type="submit">Translate</button>
+    </form>
+    <hr>
+    {% if images %}
+        <h2>Translation</h2>
+        {% for img in images %}
+            <img src="{{ url_for('static', filename=img) }}">
+        {% endfor %}
+    {% endif %}
+</body>
+</html>
